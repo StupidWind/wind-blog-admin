@@ -1,5 +1,6 @@
 package com.stupidwind.blog.domain.entity.base;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -24,12 +25,12 @@ public class BaseEntity {
 	private Boolean ifuse;
 
 	// 创建时间
-	@TableField("create_time")
+	@TableField(value = "create_time", fill = FieldFill.INSERT)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date createTime;
 
 	// 更新时间
-	@TableField("update_time")
+	@TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date updateTime;
 
