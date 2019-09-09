@@ -17,7 +17,7 @@ import lombok.Data;
 public class Article extends BaseEntity {
 
 	@TableId("article_id")
-	private String articleId;
+	private String article_id;
 
 	@TableField("title")
 	private String title;

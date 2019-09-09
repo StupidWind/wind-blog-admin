@@ -21,17 +21,17 @@ public class BaseEntity {
 
 	// 是否启用
 	@TableLogic
-	@TableField("ifuse")
+	@TableField(value = "ifuse", fill = FieldFill.INSERT)
 	private Boolean ifuse;
 
 	// 创建时间
 	@TableField(value = "create_time", fill = FieldFill.INSERT)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-	private Date createTime;
+	private Date create_time;
 
 	// 更新时间
 	@TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-	private Date updateTime;
+	private Date update_time;
 
 }

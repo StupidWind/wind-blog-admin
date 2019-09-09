@@ -24,23 +24,23 @@ public class ResultBean<T> {
 
 	}
 
-	public ResultBean(int code, String msg, boolean success, T data) {
+	public ResultBean(boolean success, int code, String msg, T data) {
+		this.success = success;
 		this.code = code;
 		this.msg = msg;
-		this.success = success;
 		this.data = data;
 	}
 
-	public ResultBean(int code, String msg, boolean success) {
-		this(code, msg, success, null);
+	public ResultBean(boolean success, int code, String msg) {
+		this(success, code, msg, null);
 	}
 
 	public ResultBean(int code, String msg) {
-		this(code, msg, true);
+		this(true, code, msg);
 	}
 
 	public ResultBean(T data) {
-		this(ResultConst.RESULT_SUCCESS, "返回成功!", true, data);
+		this(true, ResultConst.RESULT_SUCCESS, "返回成功!", data);
 	}
 
 }
