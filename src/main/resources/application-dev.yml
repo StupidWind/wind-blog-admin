@@ -32,6 +32,5 @@ mybatis-plus:
       logic-delete-value: 0
       logic-not-delete-value: 1
   configuration:
-    map-underscore-to-camel-case: true
     cache-enabled: false
     jdbc-type-for-null: null

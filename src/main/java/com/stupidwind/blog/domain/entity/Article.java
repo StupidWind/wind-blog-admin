@@ -17,7 +17,7 @@ import lombok.Data;
 public class Article extends BaseEntity {
 
 	@TableId("article_id")
-	private String article_id;
+	private String articleId;
 
 	@TableField("title")
 	private String title;
@@ -26,21 +26,21 @@ public class Article extends BaseEntity {
 	private String brief;
 
 	@TableField("md_content")
-	private String md_content;
+	private String mdContent;
 
 	@TableField("html_content")
-	private String html_content;
+	private String htmlContent;
 
 	@TableField("author_id")
-	private String author_id;
+	private String authorId;
 
 	@TableField("author_name")
-	private String author_name;
+	private String authorName;
 
 	@TableField("thumbs_up_count")
-	private Integer thumbs_up_count;
+	private Integer thumbsUpCount;
 
 	@TableField("read_count")
-	private Integer read_count;
+	private Integer readCount;
 
 }

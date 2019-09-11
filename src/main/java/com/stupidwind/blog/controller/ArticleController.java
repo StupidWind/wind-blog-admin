@@ -1,5 +1,6 @@
 package com.stupidwind.blog.controller;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.stupidwind.blog.consts.ResultConst;
 import com.stupidwind.blog.domain.entity.Article;
 import com.stupidwind.blog.domain.vo.ResultBean;
@@ -38,7 +39,7 @@ public class ArticleController {
 
 	@GetMapping("/list")
 	public ResultList<Article> list() {
-		return new ResultList<>(articleService.list());
+		return new ResultList<>(articleService.list(Wrappers.<Article>lambdaQuery()));
 	}
 
 }

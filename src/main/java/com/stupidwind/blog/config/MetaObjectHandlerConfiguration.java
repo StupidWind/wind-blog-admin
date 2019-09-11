@@ -18,13 +18,13 @@ public class MetaObjectHandlerConfiguration implements MetaObjectHandler {
 	@Override
 	public void insertFill(MetaObject metaObject) {
 		this.setFieldValByName("ifuse", true, metaObject);
-		this.setFieldValByName("create_time", new Date(), metaObject);
-		this.setFieldValByName("update_time", new Date(), metaObject);
+		this.setFieldValByName("createTime", new Date(), metaObject);
+		this.setFieldValByName("updateTime", new Date(), metaObject);
 	}
 
 	@Override
 	public void updateFill(MetaObject metaObject) {
-		this.setFieldValByName("update_time", new Date(), metaObject);
+		this.setFieldValByName("updateTime", new Date(), metaObject);
 	}
 
 }

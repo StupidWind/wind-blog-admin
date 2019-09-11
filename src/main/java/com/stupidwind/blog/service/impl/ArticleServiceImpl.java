@@ -27,11 +27,11 @@ public class ArticleServiceImpl extends BaseService<Article> implements ArticleS
 
 	@Override
 	public Article doSaveArticle(Article article) {
-		if (StringUtils.isEmpty(article.getArticle_id())) {
-			article.setArticle_id(UUIDUtils.getDatabaseId("A"));
+		if (StringUtils.isEmpty(article.getArticleId())) {
+			article.setArticleId(UUIDUtils.getDatabaseId("A"));
 			save(article);
 		} else {
-			update(article, Wrappers.<Article>lambdaUpdate().eq(Article::getArticle_id, article.getArticle_id()));
+			update(article, Wrappers.<Article>lambdaUpdate().eq(Article::getArticleId, article.getArticleId()));
 		}
 		return article;
 	}
