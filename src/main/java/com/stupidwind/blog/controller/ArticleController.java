@@ -1,6 +1,7 @@
 package com.stupidwind.blog.controller;
 
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.stupidwind.blog.consts.ResultConst;
 import com.stupidwind.blog.domain.entity.Article;
 import com.stupidwind.blog.domain.vo.ResultBean;
@@ -38,8 +39,9 @@ public class ArticleController {
 	}
 
 	@GetMapping("/list")
-	public ResultList<Article> list() {
-		return new ResultList<>(articleService.list(Wrappers.<Article>lambdaQuery()));
+	public ResultList<Article> list(int pageNum, int pageSize) {
+		Page<Article> pageParam = new Page<>(pageNum, pageSize);
+		return new ResultList<>(articleService.page(pageParam));
 	}
 
 }

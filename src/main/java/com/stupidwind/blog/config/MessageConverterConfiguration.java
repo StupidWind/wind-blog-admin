@@ -26,7 +26,7 @@ public class MessageConverterConfiguration extends WebMvcConfigurerAdapter {
 		fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat,
 				SerializerFeature.WriteMapNullValue,
 				SerializerFeature.WriteNullListAsEmpty);
-		fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
+		// fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
 		fastConverter.setFastJsonConfig(fastJsonConfig);
 		HttpMessageConverter<?> converter = fastConverter;
 		return new HttpMessageConverters(converter);

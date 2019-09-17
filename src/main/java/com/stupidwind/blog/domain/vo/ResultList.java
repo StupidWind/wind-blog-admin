@@ -1,5 +1,6 @@
 package com.stupidwind.blog.domain.vo;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.stupidwind.blog.consts.ResultConst;
 import lombok.Data;
 
@@ -19,6 +20,12 @@ public class ResultList<T> {
 	private String msg;
 
 	private boolean success;
+
+	private long page;
+
+	private long pageSize;
+
+	private long total;
 
 	private List<T> list;
 
@@ -43,6 +50,13 @@ public class ResultList<T> {
 
 	public ResultList(List<T> list) {
 		this(ResultConst.RESULT_SUCCESS, "返回成功!", true, list);
+	}
+
+	public ResultList(IPage<T> list) {
+		this(ResultConst.RESULT_SUCCESS, "返回成功!", true, list.getRecords());
+		this.page = list.getCurrent();
+		this.pageSize = list.getSize();
+		this.total = list.getTotal();
 	}
 
 }
