@@ -4,11 +4,14 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.stupidwind.blog.domain.entity.Article;
 import com.stupidwind.blog.service.ArticleService;
 import com.stupidwind.blog.service.base.BaseService;
+import com.stupidwind.blog.utils.CommonUtils;
 import com.stupidwind.blog.utils.UUIDUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.Date;
 import java.util.Optional;
 
 /**
@@ -26,12 +29,14 @@ public class ArticleServiceImpl extends BaseService<Article> implements ArticleS
 	}
 
 	@Override
-	public Article doSaveArticle(Article article) {
+	public Article doSaveArticle(Article article) throws Exception {
 		if (StringUtils.isEmpty(article.getArticleId())) {
 			article.setArticleId(UUIDUtils.getDatabaseId("A"));
 			save(article);
 		} else {
-			update(article, Wrappers.<Article>lambdaUpdate().eq(Article::getArticleId, article.getArticleId()));
+			Article existArticle = getArticleOfNonNull(article.getArticleId());
+			BeanUtils.copyProperties(article, existArticle, CommonUtils.getNullPropertyNames(article));
+			update(existArticle, Wrappers.<Article>lambdaUpdate().set(Article::getUpdateTime, new Date()).eq(Article::getArticleId, article.getArticleId()));
 		}
 		return article;
 	}

@@ -18,7 +18,7 @@ public interface ArticleService extends IService<Article> {
 	 * @param article 文章数据
 	 * @return com.stupidwind.blog.domain.entity.Article
 	 */
-	Article doSaveArticle(Article article);
+	Article doSaveArticle(Article article) throws Exception;
 
 	/**
 	 * @description 删除文章

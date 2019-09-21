@@ -1,6 +1,5 @@
 package com.stupidwind.blog.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.stupidwind.blog.consts.ResultConst;
 import com.stupidwind.blog.domain.entity.Article;
@@ -29,8 +28,8 @@ public class ArticleController {
 	}
 
 	@PostMapping("/save")
-	public ResultBean<Article> doSaveArticle(Article article) {
-		return new ResultBean<>(true, ResultConst.RESULT_SUCCESS, "保存成功!", articleService.doSaveArticle(article));
+	public ResultBean<Article> doSaveArticle(Article article) throws Exception {
+		return new ResultBean<>(true, ResultConst.RESULT_SUCCESS, "保存成功", articleService.doSaveArticle(article));
 	}
 
 	@DeleteMapping("/del/{articleId}")

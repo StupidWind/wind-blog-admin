@@ -10,4 +10,6 @@ public class ResultConst {
 
 	public static final int RESULT_SUCCESS = 200;
 
+	public static final int RESULT_FAILURE = 500;
+
 }
