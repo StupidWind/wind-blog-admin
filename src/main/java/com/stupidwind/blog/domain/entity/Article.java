@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.stupidwind.blog.domain.entity.base.BaseEntity;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * @author: StupidWind
@@ -14,6 +15,7 @@ import lombok.Data;
  */
 @Data
 @TableName("t_article")
+@Accessors(chain = true)
 public class Article extends BaseEntity {
 
 	@TableId("article_id")
@@ -38,9 +40,9 @@ public class Article extends BaseEntity {
 	private String authorName;
 
 	@TableField("thumbs_up_count")
-	private Integer thumbsUpCount;
+	private Integer thumbsUpCount = 0;
 
 	@TableField("read_count")
-	private Integer readCount;
+	private Integer readCount = 0;
 
 }

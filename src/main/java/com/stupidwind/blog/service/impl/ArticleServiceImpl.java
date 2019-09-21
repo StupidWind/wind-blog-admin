@@ -38,7 +38,7 @@ public class ArticleServiceImpl extends BaseService<Article> implements ArticleS
 			BeanUtils.copyProperties(article, existArticle, CommonUtils.getNullPropertyNames(article));
 			update(existArticle, Wrappers.<Article>lambdaUpdate().set(Article::getUpdateTime, new Date()).eq(Article::getArticleId, article.getArticleId()));
 		}
-		return article;
+		return getArticleOfNonNull(article.getArticleId());
 	}
 
 	@Override

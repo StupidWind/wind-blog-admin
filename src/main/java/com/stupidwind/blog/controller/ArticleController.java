@@ -24,7 +24,7 @@ public class ArticleController {
 
 	@GetMapping("/get/{articleId}")
 	public ResultBean<Article> getById(@PathVariable("articleId") String articleId) {
-		return new ResultBean<>(true, ResultConst.RESULT_SUCCESS, "获取成功!", articleService.getById(articleId));
+		return new ResultBean<>(true, ResultConst.RESULT_SUCCESS, "获取成功", articleService.getById(articleId));
 	}
 
 	@PostMapping("/save")
@@ -34,7 +34,7 @@ public class ArticleController {
 
 	@DeleteMapping("/del/{articleId}")
 	public ResultBean<Article> doDelArticle(@PathVariable("articleId") String articleId) throws Exception {
-		return new ResultBean<>(true, ResultConst.RESULT_SUCCESS, "删除成功!", articleService.doDelArticle(articleId));
+		return new ResultBean<>(true, ResultConst.RESULT_SUCCESS, "删除成功", articleService.doDelArticle(articleId));
 	}
 
 	@GetMapping("/list")
