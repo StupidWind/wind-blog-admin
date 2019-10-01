@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     name: test
-    url: jdbc:mysql://192.168.117.128:3306/blog?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
-    username: stupidwind
-    password: Pwd@123
+    url: jdbc:mysql://49.235.172.208:3306/blog?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     filters: stat
     maxActive: 20
